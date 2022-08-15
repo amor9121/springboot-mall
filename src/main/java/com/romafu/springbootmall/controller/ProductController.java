@@ -1,6 +1,7 @@
 package com.romafu.springbootmall.controller;
 
 import com.romafu.springbootmall.constant.ProductCategory;
+import com.romafu.springbootmall.dto.ProductQueryParams;
 import com.romafu.springbootmall.dto.ProductRequest;
 import com.romafu.springbootmall.model.Product;
 import com.romafu.springbootmall.service.ProductService;
@@ -23,7 +24,11 @@ public class ProductController {
             @RequestParam(required = false) ProductCategory category,
             @RequestParam(required = false) String search
     ){
-        List<Product> productList = productService.getProducts(category, search);
+        ProductQueryParams productQueryParams = new ProductQueryParams();
+        productQueryParams.setCategory(category);
+        productQueryParams.setSearch(search);
+
+        List<Product> productList = productService.getProducts(productQueryParams);
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
 
