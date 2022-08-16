@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.cassandra.CassandraProperties;
 import java.util.List;
 
 public interface ProductService {
-
+    Integer countProduct(ProductQueryParams productQueryParams);
     List<Product> getProducts(ProductQueryParams productQueryParam);
     Product getProductById(Integer productId);
     Integer createProduct(ProductRequest productRequest);
