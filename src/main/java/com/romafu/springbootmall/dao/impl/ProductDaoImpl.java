@@ -1,6 +1,5 @@
 package com.romafu.springbootmall.dao.impl;
 
-import com.romafu.springbootmall.constant.ProductCategory;
 import com.romafu.springbootmall.dao.ProductDao;
 import com.romafu.springbootmall.dto.ProductQueryParams;
 import com.romafu.springbootmall.dto.ProductRequest;
