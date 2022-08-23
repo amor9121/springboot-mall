@@ -56,7 +56,7 @@ public class ProductDaoImpl implements ProductDao {
         map.put("limit", productQueryParams.getLimit());
         map.put("offset", productQueryParams.getOffset());
 
-        List<Product> productList = namedParameterJdbcTemplate.query(sql,map, new ProductRowMapper());
+        List<Product> productList = namedParameterJdbcTemplate.query(sql, map, new ProductRowMapper());
 
         return productList;
     }

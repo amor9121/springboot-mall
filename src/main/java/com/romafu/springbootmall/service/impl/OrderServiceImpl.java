@@ -5,6 +5,7 @@ import com.romafu.springbootmall.dao.ProductDao;
 import com.romafu.springbootmall.dao.UserDao;
 import com.romafu.springbootmall.dto.BuyItem;
 import com.romafu.springbootmall.dto.CreateOrderRequest;
+import com.romafu.springbootmall.dto.OrderQueryParams;
 import com.romafu.springbootmall.model.Order;
 import com.romafu.springbootmall.model.OrderItem;
 import com.romafu.springbootmall.model.Product;
@@ -36,6 +37,26 @@ public class OrderServiceImpl implements OrderService {
     private UserDao userDao;
 
     private final static Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
+
+    @Override
+    public Integer countOrder(OrderQueryParams orderQueryParams) {
+        return orderDao.countOrder(orderQueryParams);
+    }
+
+    @Override
+    public List<Order> getOrders(OrderQueryParams orderQueryParams) {
+
+        List<Order> orderList = orderDao.getOrders(orderQueryParams);
+
+        for(Order order : orderList){
+            List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(order.getOrderId());
+
+            order.setOrderItemList(orderItemList);
+
+        }
+
+        return orderList;
+    }
 
     @Override
     public Order getOrderById(Integer orderId) {
