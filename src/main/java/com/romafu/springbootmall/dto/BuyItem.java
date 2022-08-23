@@ -9,6 +9,8 @@ public class BuyItem {
     @NotNull
     private Integer quantity;
 
+    private Integer stock;
+
     public Integer getProductId() {
         return productId;
     }
@@ -23,5 +25,13 @@ public class BuyItem {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 }
