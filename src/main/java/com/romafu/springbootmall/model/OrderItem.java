@@ -8,6 +8,10 @@ public class OrderItem {
     private Integer quantity;
     private Integer amount;
 
+    private String productName;
+
+    private String imageUrl;
+
     public Integer getOrderItemId() {
         return orderItemId;
     }
@@ -16,7 +20,7 @@ public class OrderItem {
         this.orderItemId = orderItemId;
     }
 
-    public Integer getOrderId() {
+    public Integer getOrderId(int order_id) {
         return orderId;
     }
 
@@ -46,5 +50,25 @@ public class OrderItem {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
